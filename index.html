@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>4 PLM</title>
+
+<style>
+body{
+    background:#000;
+    color:#00ff66;
+    font-family: Consolas, monospace;
+    font-size:28px;
+    padding:40px;
+    white-space:pre-line;
+}
+</style>
+
+</head>
+<body>
+
+<div id="text"></div>
+
+<script>
+const lyrics = [
+"4 PLM",
+"",
+"จาก ตจว. ฉันต้องจากบ้านมาไกล",
+"ตึกรา บ้านช่อง สูงใหญ่",
+"มีแต่ใคร ๆ ที่เดินพลุ้งพล่าน",
+"บังเอิญ เจอเธอ",
+"หัวใจฉันฟุ้งและซ่าน",
+"คิดไกลไปถึงแต่งงาน",
+"หัวใจต้องการไม่ว่ายังไง",
+"",
+"พรวิเศษอันใด",
+"ช่วยทำให้เธอยอมมาเดทเร็วไว",
+"ถ้าไม่รังเกียจอะไร",
+"ขอร้องเธออย่าปฏิเสธได้ไหม",
+"ใจศิโรราบ พร้อมจะดูแล",
+"ขอเพียงแค่เธอจ้องตากันอีกครั้ง"
+];
+
+const output = document.getElementById("text");
+
+async function typeWriter(text){
+    for(let i=0;i<text.length;i++){
+        output.innerHTML += text.charAt(i);
+        await new Promise(r=>setTimeout(r,60));
+    }
+    output.innerHTML += "<br>";
+    await new Promise(r=>setTimeout(r,300));
+}
+
+async function start(){
+    for(const line of lyrics){
+        await typeWriter(line);
+    }
+}
+
+start();
+</script>
+
+</body>
+</html>
